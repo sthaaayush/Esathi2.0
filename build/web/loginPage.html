@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Esathi-LogIn</title>
+        <style>
+            body{
+                background-image: url("background.png");
+            }
+            form {
+                font-size: 25px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                width: 100%;
+                height: 645px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .contain {
+                border: 2px solid blue;
+                height: 300px;
+                width: 300px;
+                border-radius: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 25px;
+                background-color: blanchedalmond;
+            }
+            .errorMsg{
+                width: 300px;
+                float: left;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+            }
+            
+            .uname,
+            .pass,
+            .signin,.reg {
+                width: 300px;
+                float: left;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 30px;
+            }
+
+            .field {
+                height: 25px;
+                border-radius: 5px;
+                margin-left: 4px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .signField {
+                width: 90px;
+                padding: 4px;
+                border-radius: 10px;
+                background-color: cadetblue;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .signField:hover {
+                background-color: lightcyan;
+            }
+            .reg{
+                font-size: 15px;
+            }
+            .logo {
+                border: 1px solid black;
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+            }
+
+            .logo_img {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+            }
+            a{
+                text-decoration: none;
+                color: mediumblue;
+            }
+            a:hover{
+                color: blueviolet;
+                text-shadow: 2px 2px 5px blue;
+            }
+            .reg{
+                font-size: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="logo">
+                <img src="esathi.jpg" alt="LOGO" class="logo_img">
+            </div>
+        </div>
+        <form action="logexe" method="post">
+            <div class="contain">
+                <div class="contains">
+                    <div class="uname">
+                        <label for="uname">Username:</label>
+                        <input type="text" name="uname" class="field" placeholder="UserName">
+                    </div>
+                    <br>
+                    <div class="pass">
+                        <label for="pass">Password:</label>
+                        <input type="password" name="pass" class="field" placeholder="Secret Code">
+                    </div>
+
+                    <div class=signin>
+                        <input type="submit" value="Login" name="flag" class="signField">
+                    </div>
+                    <div class="reg">New here?<a href="registerPage.html">Get Known</a></div>
+                </div>
+            </div>
+        </form>
+    </body>
+
+</html>

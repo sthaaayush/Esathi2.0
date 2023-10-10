@@ -1,0 +1,102 @@
+<html>
+
+    <head>
+        <title>Esathi-Home</title>
+        <style>
+            body {
+                background-image: url("background.png");
+            }
+
+            .logo {
+                border: 1px solid black;
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+            }
+
+            .logo_img {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50%;
+                width: 100%;
+            }
+
+            .content{
+                border-radius: 20%;
+                padding: 110px;
+            }
+
+            .user {
+
+                width: 100%;
+                margin-bottom: 60px;
+            }
+
+            .viewer {
+                width: 100%;
+                margin: 0;
+            }
+
+            .a {
+                border: none;
+                background-color: rgb(233, 244, 215);
+                height: 50px;
+                width: 150px;
+                border-radius: 12px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 35px;
+                padding-right: 28px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .a:hover {
+                background-color: rgb(216, 232, 191);
+                /* transform: scale(.95); */
+            }
+
+            .b {
+                border: none;
+                background-color: rgb(233, 244, 215);
+                height: 50px;
+                width: 150px;
+                border-radius: 12px;
+                padding: 20px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .b:hover {
+                background-color: rgb(216, 232, 191);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="logo">
+                <img src="esathi.jpg" alt="LOGO" class="logo_img">
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <div class="user">
+                    <a class="a" href="userPage.html">USER</a>
+                </div>
+
+                <div class="viewer">
+                    <a class="b" href="viewPage.jsp">VIEWER</a>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
