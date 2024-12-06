@@ -1,5 +1,6 @@
+<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*, java.sql.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-
     <head>
         <title>Esathi.ViewerPage</title>
         <style>
@@ -164,16 +165,8 @@
                 float: right;
                 border-radius: 7px;
             }
-            
-            .respond_button:hover{
-                background-color: aliceblue;
-                font-size: 15px;
-                font-weight: bold;
-                text-shadow: 2px 2px 5px cyan;
-            }
         </style>
     </head>
-
     <body>
         <div class="header">
             <div class="logo">
@@ -181,7 +174,7 @@
             </div>
             <div class="header_left">
                 <a href="userPage.html" class="user_page">User</a>
-                <a href="game1_ngg.jsp" class="about">Game1</a>
+                <a href="#" class="about">About</a>
                 <a href="#" class="contact">Contact</a>
                 <a href="homePage.html" class="home">Home</a>
                 <a href="loginPage.jsp" class="lout">LogOut</a>
@@ -190,35 +183,28 @@
 
         <div class="bottom_body">
             <div class="chatbox">
-                <body>
-                    <div id="bot">
-                        <div id="container">
-                            <div id="body">
-                                <% for (int i = 0; i < 3; i++) { %>
-                                <div class="userSection">
-                                    <div class="messages user-message">Hi how are you!!
-                                        <form action="#" method="POST" class="respond_button"> 
-                                            <input type="submit" id="send" value="Response" class="respond_button">
-                                        </form>
-                                    </div>
+                <div id="bot">
+                    <div id="container">
+                        <div id="body">
+                            <div class="userSection">
+                                <c:forEach var="message" items="${messages}">
+                                    <div class="messages user-message">${message}</div>
                                     <br>
                                     <div class="seperator"></div>
-                                </div>
-                                
-                                
-                                <div class="botSection">
-                                    <div class="messages bot-reply">
-                                        I am fine!!
-                                    </div>
+                                </c:forEach>
+                            </div>
+
+                            <div class="botSection">
+                                <c:forEach var="response" items="${responses}">
+                                    <div class="messages bot-reply">${response}</div>
                                     <div class="seperator"></div>
-                                </div>
-                                <% } %>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
 
     </body>
-
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
-        <title>Esathi-UserPage</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Esathi - User Page</title>
         <style>
             body {
                 background-image: url("background.png");
@@ -25,7 +23,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 width: 150px;
                 border-radius: 50%;
             }
-            .viewer_page{
+
+            .viewer_page {
                 border: 1px black solid;
                 padding: 7px;
                 background-color: aquamarine;
@@ -44,6 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 border-radius: 20%;
                 margin-right: 50px;
             }
+
             .contact {
                 border: 1px black solid;
                 padding: 7px;
@@ -53,6 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 border-radius: 20%;
                 margin-right: 50px;
             }
+
             .home {
                 border: 1px black solid;
                 padding: 7px;
@@ -77,27 +78,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 justify-content: end;
                 align-items: flex-end;
             }
-            .bottom_body{
+
+            .bottom_body {
                 height: 80%;
                 position: absolute;
                 width: 90%;
-                margin-top:20px ;
+                margin-top: 20px;
             }
-            .sidebar{
+
+            .sidebar {
                 position: absolute;
                 border: 1px black solid;
                 border-radius: 16px;
                 width: 10%;
                 height: 100%;
             }
-            .chatbox{
+
+            .chatbox {
                 position: absolute;
                 border-radius: 40px;
                 left: 20%;
                 width: 90%;
                 height: 100%;
             }
-            .sidebar a{
+
+            .sidebar a {
                 text-decoration: none;
                 background-color: aquamarine;
                 color: black;
@@ -108,15 +113,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 justify-content: center;
                 align-items: center;
                 border-radius: 15px;
-                border-bottom:1px black solid ;
+                border-bottom: 1px black solid;
                 border-top: 1px black solid;
                 padding: 20px;
                 margin-bottom: 20px;
             }
-            
-            .sidebar a:hover{
+
+            .sidebar a:hover {
                 background-color: white;
-                text-shadow:2px 2px 5px black;
+                text-shadow: 2px 2px 5px black;
             }
 
 
@@ -221,67 +226,66 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 float: right;
                 height: 56px;
             }
-            
-            #send:hover{
+
+            #send:hover {
                 text-shadow: 6px 6px 3px cyan;
             }
-            
-            .form{
+
+            .form {
                 border-radius: 35px;
                 background: white;
             }
-            .header_left a:hover{
+
+            .header_left a:hover {
                 background: whitesmoke;
                 text-shadow: 2px 2px 5px grey;
-            } 
+            }
         </style>
     </head>
+
     <body>
+        <!-- Header with Navigation -->
         <div class="header">
             <div class="logo">
-                <img src="esathi.jpg" alt="LOGO" class="logo_img">
+                <img src="esathi.jpg" alt="LOGO">
             </div>
             <div class="header_left">
-                <a href="viewPage.jsp" class="viewer_page">Viewer</a>
-                <a href="game1_ngg.jsp" class="game1">Game1</a>
-                <a href="#" class="contact">Contact</a>
-                <a href="homePage.html" class="home">Home</a>
-                <a href="loginPage.jsp" class="lout">LogOut</a>
+                <a href="viewPage.jsp">Viewer</a>
+                <a href="game1_ngg.jsp">Game1</a>
+                <a href="#">Contact</a>
+                <a href="homePage.jsp">Home</a>
+                <a href="loginPage.jsp">LogOut</a>
             </div>
         </div>
 
-        <div class="bottom_body">
-            <div class="sidebar">
-                <a href="#">CHECK</a>
-                <a href="#">E-BOOKS</a>
-                <a href="#">VIDEOS</a>
-                <a href="#">ARTICLES</a>
-                <a href="../quiz/quizPage.php">QUIZ</a>
-            </div>
-            <div class="chatbox">
-                <div id="bot">
-                    <div id="container">
-                        
-                        <div id="body">
-                            <div class="userSection">
-                                <div class="messages user-message">
-                                    Hi! How Are You.
-                                </div>
-                                <div class="seperator"></div>
-                            </div>
-                        </div>
+        <!-- Sidebar for Navigation Links -->
+        <div class="sidebar">
+            <a href="#">CHECK</a>
+            <a href="#">E-BOOKS</a>
+            <a href="#">VIDEOS</a>
+            <a href="#">ARTICLES</a>
+            <a href="../quiz/quizPage.jsp">QUIZ</a>
+        </div>
 
-                        <div id="inputArea">
-                            <form action="userexe" method="POST" class="form">
-                                <input type="text" name="messages" id="userInput" placeholder="Confess Here..." required>
-                                <input type="submit" id="send" value="➤">
-                            </form>
-                        </div>
+        <!-- Chatbox -->
+        <div class="chatbox">
+            <div id="bot">
+                <div id="body">
+                    <div class="messages user-message">
+                        <%= request.getAttribute("userMessage") %>
                     </div>
+                    <div class="messages bot-reply">
+                        <%= request.getAttribute("botReply") %>
+                    </div>
+                </div>
+                <div id="inputArea">
+                    <form action="ViewPageServlet" method="post">
+                        <input type="text" id="userInput" name="userInput" placeholder="Confess Here..." required>
+                        <button id="send" type="submit">➤</button>
+                    </form>
                 </div>
             </div>
         </div>
-
     </body>
 
-</html>
+    </html>
